@@ -55,5 +55,5 @@ variable "public1b_cidr_block"{
 #SG ports to web servers from bastion server
 variable "webserver_ports"{
    type        = list
-   default     = ["22","-1"]
+   default     = ["22"]
 }

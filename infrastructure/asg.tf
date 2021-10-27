@@ -2,9 +2,9 @@
 resource "aws_autoscaling_group" "webserver_asg" {
   name = "webserver_asg"
 
-  min_size             = 1
+  min_size             = 2
   desired_capacity     = 2
-  max_size             = 3
+  max_size             = 4
   force_delete = true
   depends_on = [aws_alb.web_alb]
   target_group_arns = [aws_lb_target_group.tg_alb.arn]

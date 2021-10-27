@@ -4,4 +4,4 @@ yum search nginx
 amazon-linux-extras install nginx1 -y
 systemctl start nginx
 systemctl enable nginx
-sudo echo <h1>Hello AWS servers build on Terraform, connecting to: </h1> <p> `hostname -f` </p> > /usr/share/nginx/html/index.html
+sudo echo Hello World! AWS Intances Build Through Terraform, Connecting to: `hostname -f` > /usr/share/nginx/html/index.html

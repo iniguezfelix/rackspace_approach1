@@ -1,2 +1,6 @@
 # rackspace_approach1 - Felix Iniguez
-# Launch a simple web site in a load balanced, highly available and highly resilient manner utilizing automation and AWS best practices.
+## Launch a simple web site in a load balanced, highly available and highly resilient manner utilizing automation and AWS best practices.
+
+### **STEPS**
+#### **1.-** Execute terraform init, terraform apply from s3backend folder; to crate s3 bucked and dynamodb table required for remote backed
+#### **2.-** Execute terraform init, terraform apply from infrastructure folder; to crate all infrastructure required by the assigment
