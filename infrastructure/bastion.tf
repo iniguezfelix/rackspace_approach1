@@ -15,7 +15,7 @@ resource "aws_instance" "bastion" {
   instance_type = "t2.micro"
   subnet_id = aws_subnet.public_us_east_1a.id
   security_groups = [aws_security_group.bastion.id]
-  key_name = "bastion"
+  key_name = var.keyname_bastion
 
   tags = {
     Name    = "Bastion Server"

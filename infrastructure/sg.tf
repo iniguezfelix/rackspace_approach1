@@ -4,6 +4,18 @@ resource "aws_security_group" "web_servers" {
   description = "Allow HTTP Inbound Connections for WEB Servers"
   vpc_id = aws_vpc.vpc_approach1.id
 
+
+  dynamic "ingress" {
+    for_each = var.webserver_ports
+    content  {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      security_groups = [aws_security_group.bastion.id]
+    }
+
+  }
+
   ingress {
     from_port   = 80
     to_port     = 80

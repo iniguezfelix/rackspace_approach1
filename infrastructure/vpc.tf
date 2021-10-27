@@ -1,6 +1,6 @@
 # Custom VPC
 resource "aws_vpc" "vpc_approach1" {
-  cidr_block       = "10.0.0.0/16"
+  cidr_block       = var.vpc_cidr
   enable_dns_hostnames = true
 
   tags = {
@@ -52,8 +52,8 @@ resource "aws_nat_gateway" "nat2_gateway" {
 #Subnets Private for web servers Public for Bastion host
 resource "aws_subnet" "private_us_east_1a" {
   vpc_id     = aws_vpc.vpc_approach1.id
-  cidr_block = "10.0.0.0/24"
-  availability_zone = "us-east-1a"
+  cidr_block = var.private1a_cidr_block
+  availability_zone = var.az1
 
   tags = {
     Name = "Private Subnet us-east-1a"
@@ -62,8 +62,8 @@ resource "aws_subnet" "private_us_east_1a" {
 
 resource "aws_subnet" "private_us_east_1b" {
   vpc_id     = aws_vpc.vpc_approach1.id
-  cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1b"
+  cidr_block = var.private1b_cidr_block
+  availability_zone = var.az2
 
   tags = {
     Name = "Private Subnet us-east-1b"
@@ -72,8 +72,8 @@ resource "aws_subnet" "private_us_east_1b" {
 
 resource "aws_subnet" "public_us_east_1a" {
   vpc_id     = aws_vpc.vpc_approach1.id
-  cidr_block = "10.0.2.0/24"
-  availability_zone = "us-east-1a"
+  cidr_block = var.public1a_cidr_block
+  availability_zone = var.az1
 
   tags = {
     Name = "Public Subnet us-east-1a"
@@ -82,8 +82,8 @@ resource "aws_subnet" "public_us_east_1a" {
 
 resource "aws_subnet" "public_us_east_1b" {
   vpc_id     = aws_vpc.vpc_approach1.id
-  cidr_block = "10.0.3.0/24"
-  availability_zone = "us-east-1b"
+  cidr_block = var.public1b_cidr_block
+  availability_zone = var.az2
 
   tags = {
     Name = "Public Subnet us-east-1b"
